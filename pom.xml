@@ -4,9 +4,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.knownsec</groupId>
+    <groupId>com.newkms.qixincha</groupId>
     <artifactId>scana-sdk-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.0</version>
+
+    <name>scana-sdk-java</name>
+    <description>newkms sdk for java</description>
+    <url>https://github.com/scanasdk/scana-sdk-java</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Ywaq-newkms</name>
+            <organization>Ywaq</organization>
+            <organizationUrl>https://ywaq.yunaq.com/content-safe</organizationUrl>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,10 +44,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version>
         </dependency>
+        <!--json 相关-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.7</version>
+            <version>2.8.9</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
@@ -55,6 +75,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-
 </project>

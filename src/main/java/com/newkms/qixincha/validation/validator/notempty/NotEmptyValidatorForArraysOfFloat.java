@@ -1,0 +1,18 @@
+
+package com.newkms.qixincha.validation.validator.notempty;
+
+
+
+import com.newkms.qixincha.validation.limitation.NotEmpty;
+import com.newkms.qixincha.validation.validator.LimitationValidator;
+
+public class NotEmptyValidatorForArraysOfFloat implements LimitationValidator<NotEmpty, float[]> {
+
+    @Override
+    public boolean isValid(float[] array) {
+        if (array == null) {
+            return false;
+        }
+        return array.length > 0;
+    }
+}
