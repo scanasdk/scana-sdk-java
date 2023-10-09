@@ -2,7 +2,7 @@
 
 ### 安装SDK
 
-sdk 暂未上传至中央仓库，需要下载 [scana-sdk-java](www.baidu.com)引入到项目中使用
+sdk 暂未上传至中央仓库，需要下载 [scana-sdk-java](https://github.com/scanasdk/scana-sdk-java/releases/download/v3.0/scana-sdk.tar.gz)引入到项目中使用
 
 ## pom文件scope的system属性
 
