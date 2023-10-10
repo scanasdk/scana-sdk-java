@@ -27,7 +27,7 @@ public class BeanHierarchyDescriptor {
         List<Class> hierarchyClasses = ClassUtils.getHierarchyClass(clazz);
         List<BeanDescriptor> descriptors = new ArrayList<>(hierarchyClasses.size());
         for (Class hierarchyClass : hierarchyClasses) {
-            if (!ClassUtils.isKnownsecClass(hierarchyClass)) {
+            if (ClassUtils.isKnownsecClass(hierarchyClass)) {
                 continue;
             }
             BeanDescriptor beanDescriptor = BeanDescriptorFactory.getBeanDescriptor(hierarchyClass);

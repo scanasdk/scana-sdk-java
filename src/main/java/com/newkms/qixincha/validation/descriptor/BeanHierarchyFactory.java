@@ -17,7 +17,7 @@ public class BeanHierarchyFactory {
      * @return {@link BeanHierarchyDescriptor}
      */
     public static BeanHierarchyDescriptor getBeanHierarchy(Class beanClass) {
-        if (!ClassUtils.isKnownsecClass(beanClass)) {
+        if (ClassUtils.isKnownsecClass(beanClass)) {
             return null;
         }
 
