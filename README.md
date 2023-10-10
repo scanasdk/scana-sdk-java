@@ -4,7 +4,7 @@
 
 sdk 暂未上传至中央仓库，需要下载 [scana-sdk-java](https://github.com/scanasdk/scana-sdk-java/releases/download/v3.0/scana-sdk.tar.gz)引入到项目中使用
 
-## pom文件scope的system属性
+### pom文件scope的system属性
 
 1. 在项目根目录下新建lib 目录，将jar 包放进去
 
@@ -493,47 +493,6 @@ public class ModerationDocAsyncClientTest {
 ```
 
 响应结果查看[v3 API](ecmc-docs/v3/api/doc.md)
-
-
-
-#### 灵活的接口配置
-
-- 常用的http请求的各项配置，包括接口超时参数，http连接池连接数、空闲时间等核心参数。
-- 切换请求协议，通过在请求对象中设置protocol字段，切换HTTP/HTTPS协议，默认HTTPS。
-- 同步重试的各项配置，重试次数、重试间隔等。
-
-http 各项参数配置
-
-```js
-package com.newkms.qixincha.scanasdkjavademo.config;
-
-import com.newkms.qixincha.client.ClientConfig;
-import com.newkms.qixincha.http.HttpClientConfig;
-import com.newkms.qixincha.http.ProtocolEnum;
-import com.newkms.qixincha.moderation.ModerationClient;
-
-public class ConfigDemo {
-    private static final String secretKey = "secretKey";
-    private static final String appId = "appId";
-
-    public static void main(String[] args) {
-    // 实例化发起请求的client 对象
-    ModerationClient client = new ModerationClient(appId, secretKey);
-    // 获取sdk 客户端默认配置
-    ClientConfig clientConfig = client.ClientConfig();
-    // 设置sdk 失败重试次数
-    clientConfig.setMaxRetryCount(3);
-    // 设置域名地址
-    clientConfig.setModerationDomain("");
-
-    // 获取HTTP客户端默认配置
-    HttpClientConfig httpClientConfig = clientConfig.getHttpClientConfig();
-    // 设置超时时间
-    httpClientConfig.setSocketTimeoutMillis(6000);
-    // 设置请求协议
-    httpClientConfig.setProtocol(ProtocolEnum.HTTPS);
-}
-}
 
 ```
 
