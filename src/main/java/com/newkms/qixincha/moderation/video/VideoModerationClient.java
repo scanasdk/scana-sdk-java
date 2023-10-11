@@ -6,7 +6,7 @@ import com.newkms.qixincha.moderation.video.v3.VideoModerationInput;
 import com.newkms.qixincha.moderation.video.v3.VideoModerationOutput;
 
 /**
- * 文本审核请求客户端
+ * 视频审核请求客户端
  */
 public class VideoModerationClient extends Client {
     public VideoModerationClient(ClientConfig clientConfig) {

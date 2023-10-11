@@ -7,6 +7,9 @@ import com.newkms.qixincha.utils.AssertUtils;
  * 提供两种实例化的方案 初始化一个client
  */
 public class BaseClient {
+    /**
+     * 内置请求器
+     */
     protected ModerationRequester requester;
 
     public BaseClient(ModerationRequester requester) {

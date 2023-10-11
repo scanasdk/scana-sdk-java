@@ -109,6 +109,10 @@ public class TextSyncModerationInput extends BizPostJsonRequest<TextSyncModerati
         return params;
     }
 
+    @Override
+    public byte[] getBody() {
+        return super.getBody();
+    }
 
     /**
      * 同步调用接口

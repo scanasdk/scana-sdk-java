@@ -20,6 +20,11 @@ import com.newkms.qixincha.moderation.video.v3.VideoModerationOutput;
  * 通用客户端
  */
 public class ModerationClient extends BaseClient {
+    /**
+     * 通过请求器创建
+     *
+     * @param requester
+     */
     public ModerationClient(ModerationRequester requester) {
         // 实例化一个requester，入参需要传入scana内容安全分配的appId，secretKey
         super(requester);
@@ -28,6 +33,13 @@ public class ModerationClient extends BaseClient {
     public ClientConfig ClientConfig() {
         return super.requester.getClientConfig();
     }
+
+    /**
+     * 通过appId ,secretKey 创建
+     *
+     * @param appId
+     * @param secretKey
+     */
 
     public ModerationClient(String appId, String secretKey) {
         super(appId, secretKey);

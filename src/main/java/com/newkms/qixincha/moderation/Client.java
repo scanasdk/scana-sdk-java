@@ -6,8 +6,6 @@ import com.newkms.qixincha.client.DefaultClient;
 public abstract class Client {
     protected DefaultClient client;
 
-    public Client() {
-    }
 
     public Client(ClientConfig clientConfig) {
         client = createClient(clientConfig);
