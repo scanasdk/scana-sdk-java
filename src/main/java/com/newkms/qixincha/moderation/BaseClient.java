@@ -2,6 +2,9 @@ package com.newkms.qixincha.moderation;
 
 
 import com.newkms.qixincha.utils.AssertUtils;
+import com.newkms.qixincha.utils.SignatureUtils;
+
+import java.util.Map;
 
 /**
  * 提供两种实例化的方案 初始化一个client
@@ -22,5 +25,16 @@ public class BaseClient {
         this.requester = new ModerationRequester(appId, secretKey);
         AssertUtils.notNull(requester, "ModerationRequester can not be null");
     }
+
+    /**
+     * 校验签名
+     */
+    public boolean ValidAuth(Map<String, String[]> requestParams) {
+        return SignatureUtils.verifySignature(requestParams, requester.getSecretKey());
+    }
+
+    /**
+     * 解析回调参数，异步审核时，接口接收回调可以使用该方法解析获得审核数据
+     */
 
 }

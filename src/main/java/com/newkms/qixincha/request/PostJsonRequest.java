@@ -85,7 +85,7 @@ public abstract class PostJsonRequest<T extends BaseResponse> extends BaseReques
      *
      * @return 返回需要参与签名的参数
      */
-    protected Map<String, String> getSignParams() {
+    public Map<String, String> getSignParams() {
         Map<String, String> params = getCustomSignParams();
         params.put("version", this.version);
         params.put("timestamp", String.valueOf(this.timestamp));

@@ -41,7 +41,6 @@ public class SignerImpl implements Signer {
             target = new HashMap<>(params);
             target.put("appId", appId);
         }
-
         String signature = genSignature(signatureMethod, credentials.getSecretKey(), target);
 
         return new SignResult(signatureMethod, appId, signature);
@@ -63,7 +62,6 @@ public class SignerImpl implements Signer {
 
         // 3. 将secretKey拼接到最后
         paramBuffer.append(secretKey);
-
         return signatureMethod.calcSign(paramBuffer.toString());
     }
 

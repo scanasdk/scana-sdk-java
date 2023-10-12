@@ -27,8 +27,8 @@ public class ModerationClientTest {
 
         // 实例化发起请求的client 对象
         ModerationClient textClient = new ModerationClient(moderationRequester);
-        ClientConfig clientConfig = textClient.ClientConfig();
-        clientConfig.getHttpClientConfig().setProtocol(ProtocolEnum.HTTP);
+//        ClientConfig clientConfig = textClient.ClientConfig();
+//        clientConfig.getHttpClientConfig().setProtocol(ProtocolEnum.HTTP);
         // 实例化请求对象,传入业务ID
         TextSyncModerationInput textModerationInput = new TextSyncModerationInput(businessId);
         // 设置检测内容

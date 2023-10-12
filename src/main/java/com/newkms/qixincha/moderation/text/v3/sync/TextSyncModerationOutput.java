@@ -62,7 +62,7 @@ public class TextSyncModerationOutput extends ApiResult {
 
     @Override
     public String toString() {
-        return "TextModerationOutput{" +
+        return "TextSyncModerationOutput{" +
                 "moderationType=" + moderationType +
                 ", requestId='" + requestId + '\'' +
                 ", extra='" + extra + '\'' +

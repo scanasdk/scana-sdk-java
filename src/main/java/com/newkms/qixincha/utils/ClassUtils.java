@@ -35,7 +35,7 @@ public class ClassUtils {
      * @return
      */
     public static boolean isKnownsecClass(Class clazz) {
-        return clazz.getPackage() == null || !clazz.getPackage().getName().startsWith("com.knownsec.sdk");
+        return clazz.getPackage() == null || !clazz.getPackage().getName().startsWith("com.newkms.qixincha");
     }
 
     public static List<Class> getHierarchyClass(Class clazz) {

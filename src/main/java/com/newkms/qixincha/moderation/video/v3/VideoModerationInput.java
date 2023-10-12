@@ -9,13 +9,6 @@ import java.util.Map;
 
 public class VideoModerationInput extends BizPostJsonRequest<VideoModerationOutput> {
     /**
-     * 业务ID
-     */
-    @NotBlank(message = "businessId不能为空")
-    @Size(max = 24, message = "businessId最长24个字符")
-    private String businessId;
-
-    /**
      * 额外信息，会在响应/回调中返回
      */
     private String extra;
@@ -43,15 +36,6 @@ public class VideoModerationInput extends BizPostJsonRequest<VideoModerationOutp
     @NotBlank(message = "contentId不能为空")
     private String contentId;
 
-    @Override
-    public String getBusinessId() {
-        return businessId;
-    }
-
-    @Override
-    public void setBusinessId(String businessId) {
-        this.businessId = businessId;
-    }
 
     public String getExtra() {
         return extra;
@@ -117,7 +101,6 @@ public class VideoModerationInput extends BizPostJsonRequest<VideoModerationOutp
      */
     public VideoModerationInput(String businessId) {
         this.businessId = businessId;
-        super.businessId = businessId;
         // 版本号
         version = "v3";
         // 接口地址
@@ -132,12 +115,12 @@ public class VideoModerationInput extends BizPostJsonRequest<VideoModerationOutp
     @Override
     public String toString() {
         return "VideoModerationInput{" +
-                "businessId='" + businessId + '\'' +
-                ", extra='" + extra + '\'' +
+                "extra='" + extra + '\'' +
                 ", appId='" + appId + '\'' +
                 ", secretKey='" + secretKey + '\'' +
                 ", url='" + url + '\'' +
                 ", contentId='" + contentId + '\'' +
+                ", businessId='" + businessId + '\'' +
                 '}';
     }
 }
