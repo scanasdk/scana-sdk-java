@@ -7,7 +7,6 @@ import com.newkms.qixincha.validation.limitation.*;
 import com.newkms.qixincha.validation.validator.compare.*;
 import com.newkms.qixincha.validation.validator.notempty.*;
 import com.newkms.qixincha.validation.validator.size.*;
-import sun.security.util.Length;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;

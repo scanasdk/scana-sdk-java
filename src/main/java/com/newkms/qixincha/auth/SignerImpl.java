@@ -32,19 +32,10 @@ public class SignerImpl implements Signer {
     @Override
     public SignResult genSignature(Credentials credentials, Map<String, String> params) {
         SignatureMethodEnum signatureMethod = determineSignatureMethod(params);
-        String appId = credentials.getAppId();
 
-        Map<String, String> target;
-        if (params.containsKey("appId")) {
-            target = params;
-        } else {
-            target = new HashMap<>(params);
-            target.put("appId", appId);
-        }
+        String signature = genSignature(signatureMethod, credentials.getSecretKey(), params);
 
-        String signature = genSignature(signatureMethod, credentials.getSecretKey(), target);
-
-        return new SignResult(signatureMethod, appId, signature);
+        return new SignResult(signatureMethod, "", signature);
     }
 
     private String genSignature(SignatureMethodEnum signatureMethod, String secretKey, Map<String, String> params) {
@@ -63,7 +54,6 @@ public class SignerImpl implements Signer {
 
         // 3. 将secretKey拼接到最后
         paramBuffer.append(secretKey);
-
         return signatureMethod.calcSign(paramBuffer.toString());
     }
 

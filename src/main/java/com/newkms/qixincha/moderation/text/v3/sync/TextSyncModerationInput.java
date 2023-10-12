@@ -14,13 +14,6 @@ import java.util.Map;
  */
 public class TextSyncModerationInput extends BizPostJsonRequest<TextSyncModerationOutput> {
     /**
-     * 文本业务ID
-     */
-    @NotBlank(message = "businessId不能为空")
-    @Size(max = 24, message = "businessId最长24个字符")
-    private String businessId;
-
-    /**
      * 额外信息，会在响应/回调中返回
      */
     private String extra;
@@ -55,16 +48,6 @@ public class TextSyncModerationInput extends BizPostJsonRequest<TextSyncModerati
     @Size(min = 1, max = 100, message = "1-100条文本数据")
     private List<BaseText> text;
 
-    public String getBusinessId() {
-        return businessId;
-    }
-
-    public void setBusinessId(String businessId) {
-        // 对父类继承的businessId 进行赋值
-        super.setBusinessId(businessId);
-        this.businessId = businessId;
-    }
-
     public String getExtra() {
         return extra;
     }
@@ -88,7 +71,13 @@ public class TextSyncModerationInput extends BizPostJsonRequest<TextSyncModerati
 
     @Override
     public String toString() {
-        return "TextModerationInput{" + "businessId='" + businessId + '\'' + ", extra='" + extra + '\'' + ", appId='" + appId + '\'' + ", secretKey='" + secretKey + '\'' + ", text=" + text + '}';
+        return "TextSyncModerationInput{" +
+                "extra='" + extra + '\'' +
+                ", appId='" + appId + '\'' +
+                ", secretKey='" + secretKey + '\'' +
+                ", text=" + text +
+                ", businessId='" + businessId + '\'' +
+                '}';
     }
 
     @Override
@@ -109,13 +98,16 @@ public class TextSyncModerationInput extends BizPostJsonRequest<TextSyncModerati
         return params;
     }
 
+    @Override
+    public byte[] getBody() {
+        return super.getBody();
+    }
 
     /**
      * 同步调用接口
      */
     public TextSyncModerationInput(String businessId) {
         this.businessId = businessId;
-        super.businessId = businessId;
         // 版本号
         version = "v3";
         // 接口地址

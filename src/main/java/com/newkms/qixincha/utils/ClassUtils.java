@@ -35,7 +35,7 @@ public class ClassUtils {
      * @return
      */
     public static boolean isKnownsecClass(Class clazz) {
-        return clazz.getPackage() != null && clazz.getPackage().getName().startsWith("com.knownsec.sdk");
+        return clazz.getPackage() == null || !clazz.getPackage().getName().startsWith("com.newkms.qixincha");
     }
 
     public static List<Class> getHierarchyClass(Class clazz) {
@@ -45,12 +45,18 @@ public class ClassUtils {
         return classes;
     }
 
+    /**
+     * 获取所有实现了接口列表
+     *
+     * @param clazz
+     * @param classes
+     */
     private static void getHierarchyClass(Class clazz, List<Class> classes) {
         for (Class current = clazz; current != null; current = current.getSuperclass()) {
             if (classes.contains(current)) {
                 return;
             }
-
+            // 只有父类是接口类，才将每一个实现父类的类追加进去
             if (!clazz.isInterface()) {
                 classes.add(current);
             }

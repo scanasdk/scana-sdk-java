@@ -62,7 +62,9 @@ public class ModerationRequester {
      * @return
      */
     public static ClientConfig createDefaultConfig(String appId, String secretKey) {
+        // 创建一个默认的客户端配置
         ClientConfig clientConfig = ClientConfig.defaultConfig(new Credentials(appId, secretKey));
+        // 创建一个http 客户端配置
         HttpClientConfig httpClientConfig = new HttpClientConfig();
         // todo  v3 默认不要签名，如果需要签名这里改
         clientConfig.setSigner(null);
@@ -81,21 +83,6 @@ public class ModerationRequester {
         return this.clientConfig;
     }
 
-    /**
-     * 自定义HttpConfig
-     *
-     * @param appId
-     * @param secretKey
-     * @return
-     */
-    public static ClientConfig createDefaultConfig(String appId, String secretKey, HttpClientConfig httpClientConfig) {
-        ClientConfig clientConfig = ClientConfig.defaultConfig(new Credentials(appId, secretKey));
-        // todo  v3 默认不要签名，如果需要签名这里改
-        clientConfig.setSigner(null);
-        // 设置 httpClientConfig
-        clientConfig.setHttpClientConfig(httpClientConfig);
-        return clientConfig;
-    }
 
     public TextModerationClient getTextCheckClient() {
         return createIfAbsent(TextModerationClient.class);
@@ -117,6 +104,13 @@ public class ModerationRequester {
         return createIfAbsent(ImageModerationClient.class);
     }
 
+    /**
+     * 获取客户端
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
     private <T extends Client> T createIfAbsent(Class<T> clazz) {
         String name = clazz.getName();
         Object client = clientMap.get(name);

@@ -39,6 +39,11 @@ public class DefaultClient implements Client, Closeable {
     private CloseableHttpClient httpClient;
     private final Credentials credentials;
 
+    /**
+     * 获取相关证书信息
+     *
+     * @return
+     */
     public Credentials getCredentials() {
         return credentials;
     }
