@@ -18,21 +18,20 @@ public class SignatureUtils {
     public static final String PARAM_APP_ID = "appId";
     public static final Duration SIGNTIMEOUT = Duration.ofMinutes(5);
 
-    private static String genSignature(String secretKey, Map<String, String> params) {
-        String appId = params.get(PARAM_APP_ID);
-        return SignerImpl.INSTANCE.genSignature(new Credentials(appId, secretKey), params).getSignature();
+    private static String genSignature(Credentials credentials, Map<String, String> params) {
+        return SignerImpl.INSTANCE.genSignature(credentials, params).getSignature();
     }
 
     /**
      * 验证签名是否匹配
      *
      * @param requestParams 签名的参数
-     * @param secretKey     签名的key
+     * @param credentials   签名的key
      * @return 是否匹配
      * @throws com.newkms.qixincha.exception.KnownsecSdkException
      */
-    public static boolean verifySignature(Map<String, String[]> requestParams, String secretKey) {
-        if (StringUtils.isBlank(secretKey) || !requestParams.containsKey("appId") ||
+    public static boolean verifySignature(Map<String, String[]> requestParams, Credentials credentials) {
+        if (credentials == null ||
                 !requestParams.containsKey("businessId") || !requestParams.containsKey("timestamp") ||
                 !requestParams.containsKey(PARAM_SIGN)) {
             return false;
@@ -65,7 +64,7 @@ public class SignatureUtils {
             System.out.println("blank");
             return false;
         }
-        String generatedSignature = genSignature(secretKey, params);
+        String generatedSignature = genSignature(credentials, params);
         if (StringUtils.isBlank(generatedSignature)) {
             return false;
         }

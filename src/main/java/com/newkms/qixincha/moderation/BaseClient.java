@@ -30,7 +30,7 @@ public class BaseClient {
      * 校验签名
      */
     public boolean ValidAuth(Map<String, String[]> requestParams) {
-        return SignatureUtils.verifySignature(requestParams, requester.getSecretKey());
+        return SignatureUtils.verifySignature(requestParams, requester.getClientConfig().getCredentials());
     }
 
     /**
