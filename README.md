@@ -11,8 +11,9 @@ sdk
 1. 下载安装jar包
 
 ```shell
-curl -sSL https://github.com/scanasdk/scana-sdk-java/blob/main/setuo_scana_sdk.sh | bash
+curl -sSL https://raw.githubusercontent.com/scanasdk/scana-sdk-java/main/setup_scana_sdk.sh | bash
 ```
+
 
 2. pom.xml中引入
    ``````java
