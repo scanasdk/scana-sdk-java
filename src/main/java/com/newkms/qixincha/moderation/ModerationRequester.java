@@ -7,6 +7,7 @@ import com.newkms.qixincha.moderation.audio.AudioModerationClient;
 import com.newkms.qixincha.moderation.doc.DocModerationClient;
 import com.newkms.qixincha.moderation.image.ImageModerationClient;
 import com.newkms.qixincha.moderation.text.TextModerationClient;
+import com.newkms.qixincha.moderation.url.UrlModerationClient;
 import com.newkms.qixincha.moderation.video.VideoModerationClient;
 import com.newkms.qixincha.utils.AssertUtils;
 
@@ -19,7 +20,6 @@ public class ModerationRequester {
     private ClientConfig clientConfig;
 
     private ConcurrentHashMap<String, Object> clientMap = new ConcurrentHashMap<>();
-
 
     /**
      * 通过appId 和 secretKey创建一个请求器
@@ -66,7 +66,7 @@ public class ModerationRequester {
         ClientConfig clientConfig = ClientConfig.defaultConfig(new Credentials(appId, secretKey));
         // 创建一个http 客户端配置
         HttpClientConfig httpClientConfig = new HttpClientConfig();
-        // todo  v3 默认不要签名，如果需要签名这里改
+        // todo v3 默认不要签名，如果需要签名这里改
         clientConfig.setSigner(null);
         // 设置 httpClientConfig
         httpClientConfig.setMaxConnectionCountPerRoute(100);
@@ -82,7 +82,6 @@ public class ModerationRequester {
     public ClientConfig getClientConfig() {
         return this.clientConfig;
     }
-
 
     public TextModerationClient getTextCheckClient() {
         return createIfAbsent(TextModerationClient.class);
@@ -102,6 +101,10 @@ public class ModerationRequester {
 
     public ImageModerationClient getImageCheckClient() {
         return createIfAbsent(ImageModerationClient.class);
+    }
+
+    public UrlModerationClient getUrlCheckClient() {
+        return createIfAbsent(UrlModerationClient.class);
     }
 
     /**

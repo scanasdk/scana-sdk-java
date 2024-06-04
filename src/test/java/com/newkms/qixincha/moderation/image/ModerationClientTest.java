@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ModerationClientTest {
     private final String secretKey = "a2f175a8-5373-11ed-9949-0242ac12000e";
-    private final String appId = "62ac786311b92177337a933b";
+    private final String appId = "62ac786311b92177337a933a";
     private final String businessId = "1800097935845781514";
 
     @Test
@@ -36,7 +36,7 @@ public class ModerationClientTest {
             resp = client.ImageSyncModeration(imageSyncModerationInput);
             System.out.println(resp.getCode());
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
     }
@@ -75,7 +75,8 @@ public class ModerationClientTest {
         for (int i = 0; i < contentCount; i++) {
             image = new BaseImage();
             image.setContentId("数据唯一标识");
-            image.setData("https://images-rs.zsxq.com/Fo2bIKw8e8JkASNNnjPnnlD1psNU?e=1712303090&token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:gV6Ox7ive-7pAWw9TN798ltryv4=");
+            image.setData(
+                    "https://images-rs.zsxq.com/Fo2bIKw8e8JkASNNnjPnnlD1psNU?e=1712303090&token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:gV6Ox7ive-7pAWw9TN798ltryv4=");
             image.setType(ImageTypeEnum.URL.toInteger());
             System.out.println(ImageTypeEnum.URL.toInteger());
             // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加

@@ -8,9 +8,8 @@ import org.junit.Test;
 
 public class ModerationClientTest {
     private final String secretKey = "a2f175a8-5373-11ed-9949-0242ac12000e";
-    private final String appId = "62ac786311b92177337a933b";
+    private final String appId = "62ac786311b92177337a933a";
     private final String businessId = "1813481786970231031";
-
 
     @Test
     public void testVideoAsyncCheck() {
@@ -24,7 +23,8 @@ public class ModerationClientTest {
         VideoModerationInput videoModerationInput = new VideoModerationInput(businessId);
         // 设置检测内容
         videoModerationInput.setExtra("测试");
-        videoModerationInput.setUrl("https://rs-videos.zsxq.com/c3w3vfhmsiw0uofgs11kxm7wdnnf1csg.m3u8?MtsHlsUriToken=ZW5jcnlwdGVkPTAmdWlkPTAmdmlkPTg1Njg1JmV0PTE3MDE5MzY0MDI3MTkmc2lnbj0wRTg5NjhEMjQ2QURBRDBFMUEzOUJGMjU0OEMyM0YwQQ%3D%3D");
+        videoModerationInput.setUrl(
+                "https://rs-videos.zsxq.com/c3w3vfhmsiw0uofgs11kxm7wdnnf1csg.m3u8?MtsHlsUriToken=ZW5jcnlwdGVkPTAmdWlkPTAmdmlkPTg1Njg1JmV0PTE3MDE5MzY0MDI3MTkmc2lnbj0wRTg5NjhEMjQ2QURBRDBFMUEzOUJGMjU0OEMyM0YwQQ%3D%3D");
         videoModerationInput.setContentId("test-video");
         VideoModerationOutput resp = null;
         try {

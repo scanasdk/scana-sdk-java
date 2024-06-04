@@ -20,15 +20,15 @@ public class ModerationClientTest {
     @Test
     public void testTextSyncCheck() {
         String secretKey = "a2f175a8-5373-11ed-9949-0242ac12000e";
-        String appId = "62ac786311b92177337a933b";
+        String appId = "62ac786311b92177337a933a";
         String businessId = "1720056633192620049";
         // 实例化一个requester，入参需要传入hjws内容安全分配的appId，secretKey
         ModerationRequester moderationRequester = new ModerationRequester(appId, secretKey);
 
         // 实例化发起请求的client 对象
         ModerationClient textClient = new ModerationClient(moderationRequester);
-//        ClientConfig clientConfig = textClient.ClientConfig();
-//        clientConfig.getHttpClientConfig().setProtocol(ProtocolEnum.HTTP);
+        // ClientConfig clientConfig = textClient.ClientConfig();
+        // clientConfig.getHttpClientConfig().setProtocol(ProtocolEnum.HTTP);
         // 实例化请求对象,传入业务ID
         TextSyncModerationInput textModerationInput = new TextSyncModerationInput(businessId);
         // 设置检测内容
@@ -47,10 +47,10 @@ public class ModerationClientTest {
 
     }
 
-    @Test //测试文本异步接口
+    @Test // 测试文本异步接口
     public void testTextAsyncCheck() {
         String secretKey = "a2f175a8-5373-11ed-9949-0242ac12000e";
-        String appId = "62ac786311b92177337a933b";
+        String appId = "62ac786311b92177337a933a";
         String businessId = "1720056633192620049";
         // 实例化一个requester，入参需要传入hjws内容安全分配的appId，secretKey
         ModerationRequester moderationRequester = new ModerationRequester(appId, secretKey);
@@ -67,7 +67,8 @@ public class ModerationClientTest {
             resp = textClient.TextAsyncModeration(textModerationInput);
             System.out.println(resp);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
+            // e.printStackTrace();
         }
 
     }

@@ -13,6 +13,8 @@ import com.newkms.qixincha.moderation.text.v3.async.TextAsyncModerationInput;
 import com.newkms.qixincha.moderation.text.v3.async.TextAsyncModerationOutput;
 import com.newkms.qixincha.moderation.text.v3.sync.TextSyncModerationInput;
 import com.newkms.qixincha.moderation.text.v3.sync.TextSyncModerationOutput;
+import com.newkms.qixincha.moderation.url.v3.UrlModerationInput;
+import com.newkms.qixincha.moderation.url.v3.UrlModerationOutput;
 import com.newkms.qixincha.moderation.video.v3.VideoModerationInput;
 import com.newkms.qixincha.moderation.video.v3.VideoModerationOutput;
 
@@ -56,7 +58,6 @@ public class ModerationClient extends BaseClient {
         return this.requester.getImageCheckClient().ImageSyncModeration(input);
     }
 
-
     /**
      * 图片异步审核请求
      *
@@ -78,7 +79,6 @@ public class ModerationClient extends BaseClient {
         return this.requester.getTextCheckClient().TextSyncModeration(input);
     }
 
-
     /**
      * 文本异步审核请求
      *
@@ -89,7 +89,6 @@ public class ModerationClient extends BaseClient {
         return this.requester.getTextCheckClient().TextAsyncModeration(Input);
     }
 
-
     /**
      * 文档异步审核请求
      *
@@ -99,7 +98,6 @@ public class ModerationClient extends BaseClient {
     public DocModerationOutput DocAsyncModeration(DocModerationInput input) {
         return this.requester.getDocCheckClient().DocAsyncModeration(input);
     }
-
 
     /**
      * 音频异步审核请求
@@ -119,5 +117,15 @@ public class ModerationClient extends BaseClient {
      */
     public VideoModerationOutput VideoAsyncModeration(VideoModerationInput input) {
         return this.requester.getVideoCheckClient().VideoAsyncModeration(input);
+    }
+
+    /**
+     * url异步审核请求
+     *
+     * @param input
+     * @return
+     */
+    public UrlModerationOutput UrlAsyncModeration(UrlModerationInput input) {
+        return this.requester.getUrlCheckClient().UrlAsyncModeration(input);
     }
 }
